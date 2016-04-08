@@ -25,7 +25,6 @@
 		1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCDA8116D4A25900906EA6 /* RootViewController.mm */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3E02A4AE1B85AD6000328E71 /* component_hackery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E02A3DF1B85AD6000328E71 /* component_hackery.cpp */; };
 		3E02A4AF1B85AD6000328E71 /* configvars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E02A3E01B85AD6000328E71 /* configvars.cpp */; };
 		3E02A4B01B85AD6000328E71 /* container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E02A3E21B85AD6000328E71 /* container.cpp */; };
@@ -124,11 +123,20 @@
 		3E02A50D1B85AD6000328E71 /* gameswf_video_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E02A4A91B85AD6000328E71 /* gameswf_video_impl.cpp */; };
 		3E02A50E1B85AD6000328E71 /* NOTES.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3E02A4AB1B85AD6000328E71 /* NOTES.txt */; };
 		3E02A50F1B85AD6000328E71 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 3E02A4AC1B85AD6000328E71 /* TODO */; };
+		5CCE9C901CB7563E00E34008 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCE9C8D1CB7563E00E34008 /* libMobClickLibrary.a */; };
+		5CCE9C911CB7563E00E34008 /* umSDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE9C8F1CB7563E00E34008 /* umSDK.mm */; };
+		5CCE9C991CB75F8300E34008 /* libAlipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCE9C971CB7582E00E34008 /* libAlipay.a */; };
+		5CCE9C9B1CB7616E00E34008 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCE9C9A1CB7616E00E34008 /* AlipaySDK.framework */; };
+		5CCE9CA11CB7A21300E34008 /* H5Pay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE9C9E1CB7A21300E34008 /* H5Pay.mm */; };
+		5CCE9CA21CB7A21300E34008 /* Pay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE9C9F1CB7A21300E34008 /* Pay.mm */; };
+		5CD7DC961CB670980009FA4A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD7DC951CB670980009FA4A /* CoreTelephony.framework */; };
+		5CD7DC981CB670BD0009FA4A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD7DC971CB670BD0009FA4A /* CoreMotion.framework */; };
+		5CD7DC9A1CB671610009FA4A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD7DC991CB671610009FA4A /* Security.framework */; };
+		5CD7DC9B1CB672080009FA4A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		B01F71671951682600BA07A6 /* source_material in Resources */ = {isa = PBXBuildFile; fileRef = B01F71661951682600BA07A6 /* source_material */; };
 		B0621BE51AC3B871005EBCA7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = B0621BDB1AC3B871005EBCA7 /* fonts */; };
 		B0621E211AC3ECB0005EBCA7 /* FirstViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0621E1D1AC3ECB0005EBCA7 /* FirstViewController.cpp */; };
 		B0621E221AC3ECB0005EBCA7 /* RootWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0621E1F1AC3ECB0005EBCA7 /* RootWindow.cpp */; };
-		B0621E261AC3ECEC005EBCA7 /* r in Resources */ = {isa = PBXBuildFile; fileRef = B0621E251AC3ECEC005EBCA7 /* r */; };
 		B0A030081A8E071D0005CB8F /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A030071A8E071D0005CB8F /* CoreBluetooth.framework */; };
 		B0CA5A2B1A77A79900BECD89 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CA5A2A1A77A79900BECD89 /* SystemConfiguration.framework */; };
 		B0CA5A2D1A77A7A000BECD89 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CA5A2C1A77A7A000BECD89 /* MediaPlayer.framework */; };
@@ -139,7 +147,6 @@
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
-		EB1818D619387FFA002856FF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1818D519387FFA002856FF /* CoreLocation.framework */; };
 		EB1818D819388001002856FF /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1818D719388001002856FF /* AddressBook.framework */; };
 		EB1818DA19388005002856FF /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1818D919388005002856FF /* AddressBookUI.framework */; };
 /* End PBXBuildFile section */
@@ -398,6 +405,22 @@
 		3E02A4AA1B85AD6000328E71 /* gameswf_video_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameswf_video_impl.h; sourceTree = "<group>"; };
 		3E02A4AB1B85AD6000328E71 /* NOTES.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTES.txt; sourceTree = "<group>"; };
 		3E02A4AC1B85AD6000328E71 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		5CCE9C8D1CB7563E00E34008 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobClickLibrary.a; path = ../Classes/ios/libMobClickLibrary.a; sourceTree = "<group>"; };
+		5CCE9C8E1CB7563E00E34008 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobClick.h; path = ../Classes/ios/MobClick.h; sourceTree = "<group>"; };
+		5CCE9C8F1CB7563E00E34008 /* umSDK.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = umSDK.mm; path = ../Classes/ios/umSDK.mm; sourceTree = "<group>"; };
+		5CCE9C921CB7567300E34008 /* umSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = umSDK.h; path = ../Classes/umSDK.h; sourceTree = "<group>"; };
+		5CCE9C931CB7579400E34008 /* Pay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pay.h; path = ../Classes/Pay.h; sourceTree = "<group>"; };
+		5CCE9C961CB757F900E34008 /* Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alipay.h; path = ../Classes/ios/Alipay.h; sourceTree = "<group>"; };
+		5CCE9C971CB7582E00E34008 /* libAlipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAlipay.a; path = ../Classes/ios/libAlipay.a; sourceTree = "<group>"; };
+		5CCE9C9A1CB7616E00E34008 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = ../Classes/ios/AlipaySDK.framework; sourceTree = "<group>"; };
+		5CCE9C9C1CB7947200E34008 /* PaySdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaySdk.h; path = ../Classes/PaySdk.h; sourceTree = "<group>"; };
+		5CCE9C9E1CB7A21300E34008 /* H5Pay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = H5Pay.mm; path = ../Classes/ios/H5Pay.mm; sourceTree = "<group>"; };
+		5CCE9C9F1CB7A21300E34008 /* Pay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Pay.mm; path = ../Classes/ios/Pay.mm; sourceTree = "<group>"; };
+		5CCE9CA41CB7A60E00E34008 /* DataStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataStruct.h; path = ../Classes/DataStruct.h; sourceTree = "<group>"; };
+		5CCE9CA51CB7A60E00E34008 /* H5Pay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = H5Pay.h; path = ../Classes/H5Pay.h; sourceTree = "<group>"; };
+		5CD7DC951CB670980009FA4A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		5CD7DC971CB670BD0009FA4A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		5CD7DC991CB671610009FA4A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B00CC60D19792FF800A62E4C /* CrossAppExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrossAppExt.h; sourceTree = "<group>"; };
 		B01F71661951682600BA07A6 /* source_material */ = {isa = PBXFileReference; lastKnownFileType = folder; path = source_material; sourceTree = "<group>"; };
 		B056375B195276CF00C63FAA /* CrossApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CrossApp.xcodeproj; path = ../../../CrossApp/proj.ios/CrossApp.xcodeproj; sourceTree = "<group>"; };
@@ -406,7 +429,6 @@
 		B0621E1E1AC3ECB0005EBCA7 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = ../Classes/FirstViewController.h; sourceTree = "<group>"; };
 		B0621E1F1AC3ECB0005EBCA7 /* RootWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RootWindow.cpp; path = ../Classes/RootWindow.cpp; sourceTree = "<group>"; };
 		B0621E201AC3ECB0005EBCA7 /* RootWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootWindow.h; path = ../Classes/RootWindow.h; sourceTree = "<group>"; };
-		B0621E251AC3ECEC005EBCA7 /* r */ = {isa = PBXFileReference; lastKnownFileType = folder; path = r; sourceTree = "<group>"; };
 		B0A030071A8E071D0005CB8F /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B0A030091A8E08500005CB8F /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = ../../../CrossApp/platform/third_party/ios/libraries/libpng.a; sourceTree = "<group>"; };
 		B0ABA50B1ACBD3FA00B0DEC5 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../../CrossApp/the_third_party/curl/prebuilt/ios/libcurl.a; sourceTree = "<group>"; };
@@ -431,6 +453,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCE9C9B1CB7616E00E34008 /* AlipaySDK.framework in Frameworks */,
+				5CCE9C991CB75F8300E34008 /* libAlipay.a in Frameworks */,
+				5CD7DC9B1CB672080009FA4A /* CoreGraphics.framework in Frameworks */,
+				5CD7DC9A1CB671610009FA4A /* Security.framework in Frameworks */,
+				5CD7DC981CB670BD0009FA4A /* CoreMotion.framework in Frameworks */,
+				5CD7DC961CB670980009FA4A /* CoreTelephony.framework in Frameworks */,
 				0264A31B1BE8FBF500ADB64D /* CoreAudio.framework in Frameworks */,
 				0264A3191BE8FBEE00ADB64D /* CoreVideo.framework in Frameworks */,
 				0264A3171BE8FBE700ADB64D /* VideoToolbox.framework in Frameworks */,
@@ -443,10 +471,9 @@
 				B0CA5A2B1A77A79900BECD89 /* SystemConfiguration.framework in Frameworks */,
 				EB1818DA19388005002856FF /* AddressBookUI.framework in Frameworks */,
 				EB1818D819388001002856FF /* AddressBook.framework in Frameworks */,
-				EB1818D619387FFA002856FF /* CoreLocation.framework in Frameworks */,
+				5CCE9C901CB7563E00E34008 /* libMobClickLibrary.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
-				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
@@ -524,8 +551,14 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5CD7DC801CB643B90009FA4A /* ios */,
 				B0621E1D1AC3ECB0005EBCA7 /* FirstViewController.cpp */,
 				B0621E1E1AC3ECB0005EBCA7 /* FirstViewController.h */,
+				5CCE9C931CB7579400E34008 /* Pay.h */,
+				5CCE9CA41CB7A60E00E34008 /* DataStruct.h */,
+				5CCE9C9C1CB7947200E34008 /* PaySdk.h */,
+				5CCE9C921CB7567300E34008 /* umSDK.h */,
+				5CCE9CA51CB7A60E00E34008 /* H5Pay.h */,
 				B0621E1F1AC3ECB0005EBCA7 /* RootWindow.cpp */,
 				B0621E201AC3ECB0005EBCA7 /* RootWindow.h */,
 				B0AD93E519207CA300EA40BB /* AppMacros.h */,
@@ -562,6 +595,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CCE9C9A1CB7616E00E34008 /* AlipaySDK.framework */,
+				5CCE9C971CB7582E00E34008 /* libAlipay.a */,
+				5CD7DC991CB671610009FA4A /* Security.framework */,
+				5CD7DC971CB670BD0009FA4A /* CoreMotion.framework */,
+				5CD7DC951CB670980009FA4A /* CoreTelephony.framework */,
 				0264A31A1BE8FBF500ADB64D /* CoreAudio.framework */,
 				0264A3181BE8FBEE00ADB64D /* CoreVideo.framework */,
 				0264A3161BE8FBE700ADB64D /* VideoToolbox.framework */,
@@ -824,11 +862,23 @@
 			path = gameswf_as_classes;
 			sourceTree = "<group>";
 		};
+		5CD7DC801CB643B90009FA4A /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				5CCE9C9E1CB7A21300E34008 /* H5Pay.mm */,
+				5CCE9C9F1CB7A21300E34008 /* Pay.mm */,
+				5CCE9C961CB757F900E34008 /* Alipay.h */,
+				5CCE9C8D1CB7563E00E34008 /* libMobClickLibrary.a */,
+				5CCE9C8E1CB7563E00E34008 /* MobClick.h */,
+				5CCE9C8F1CB7563E00E34008 /* umSDK.mm */,
+			);
+			name = ios;
+			sourceTree = "<group>";
+		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				026964B01BEB433600C8BCD7 /* Images.xcassets */,
-				B0621E251AC3ECEC005EBCA7 /* r */,
 				B0621BDB1AC3B871005EBCA7 /* fonts */,
 				B01F71661951682600BA07A6 /* source_material */,
 			);
@@ -874,7 +924,7 @@
 				LastUpgradeCheck = 0430;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = YV7UQS6C4A;
+						DevelopmentTeam = BS533498KE;
 					};
 				};
 			};
@@ -918,7 +968,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0621E261AC3ECEC005EBCA7 /* r in Resources */,
 				026964B31BEB435100C8BCD7 /* CrossApp.xib in Resources */,
 				3E02A50E1B85AD6000328E71 /* NOTES.txt in Resources */,
 				3E02A50F1B85AD6000328E71 /* TODO in Resources */,
@@ -935,6 +984,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCE9C911CB7563E00E34008 /* umSDK.mm in Sources */,
 				3E02A4F61B85AD6000328E71 /* gameswf_impl.cpp in Sources */,
 				3E02A4BB1B85AD6000328E71 /* triangulate_sint32.cpp in Sources */,
 				3E02A4EF1B85AD6000328E71 /* gameswf_dlist.cpp in Sources */,
@@ -984,6 +1034,7 @@
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				3E02A5041B85AD6000328E71 /* gameswf_sound.cpp in Sources */,
 				3E02A4D21B85AD6000328E71 /* as_event.cpp in Sources */,
+				5CCE9CA21CB7A21300E34008 /* Pay.mm in Sources */,
 				3E02A4C01B85AD6000328E71 /* tu_loadlib.cpp in Sources */,
 				3E02A4CA1B85AD6000328E71 /* gameswf_action.cpp in Sources */,
 				3E02A4F01B85AD6000328E71 /* gameswf_environment.cpp in Sources */,
@@ -1019,6 +1070,7 @@
 				3E02A50D1B85AD6000328E71 /* gameswf_video_impl.cpp in Sources */,
 				3E02A4DF1B85AD6000328E71 /* as_number.cpp in Sources */,
 				3E02A4C61B85AD6000328E71 /* zlib_adapter.cpp in Sources */,
+				5CCE9CA11CB7A21300E34008 /* H5Pay.mm in Sources */,
 				3E02A4CD1B85AD6000328E71 /* as_broadcaster.cpp in Sources */,
 				3E02A4C81B85AD6000328E71 /* CAFlashView.cpp in Sources */,
 				3E02A4FB1B85AD6000328E71 /* gameswf_morph2.cpp in Sources */,
@@ -1066,6 +1118,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Classes/ios";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1089,15 +1142,19 @@
 					"\"$(SRCROOT)/../../../CrossApp/the_third_party/freetype/include\"",
 					"\"$(SRCROOT)/../../../CrossApp/the_third_party/curl/include/ios\"",
 					"\"$(SRCROOT)/../../../extensions/libwebsockets/ios/include\"",
+					"$(SRCROOT)/../Classes",
+					"$(SRCROOT)/../Classes/ios",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../extensions/libwebsockets/ios/lib\"",
-					"\"$(SRCROOT)/../../../CrossApp/the_third_party/curl/prebuilt/ios\"",
+					"$(SRCROOT)/../Classes/ios",
+					"$(SRCROOT)/../../../extensions/libwebsockets/ios/lib",
+					"$(SRCROOT)/../../../CrossApp/the_third_party/curl/prebuilt/ios",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_CFLAGS = "-O2";
-				PRODUCT_BUNDLE_IDENTIFIER = crossapp.com;
+				PRODUCT_BUNDLE_IDENTIFIER = demo.crossapp.com;
 				PRODUCT_NAME = Demo;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1118,6 +1175,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Classes/ios";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1139,14 +1197,18 @@
 					"\"$(SRCROOT)/../../../CrossApp/the_third_party/freetype/include\"",
 					"\"$(SRCROOT)/../../../CrossApp/the_third_party/curl/include/ios\"",
 					"\"$(SRCROOT)/../../../extensions/libwebsockets/ios/include\"",
+					"$(SRCROOT)/../Classes",
+					"$(SRCROOT)/../Classes/ios",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../extensions/libwebsockets/ios/lib\"",
-					"\"$(SRCROOT)/../../../CrossApp/the_third_party/curl/prebuilt/ios\"",
+					"$(SRCROOT)/../Classes/ios",
+					"$(SRCROOT)/../../../extensions/libwebsockets/ios/lib",
+					"$(SRCROOT)/../../../CrossApp/the_third_party/curl/prebuilt/ios",
+					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = crossapp.com;
+				PRODUCT_BUNDLE_IDENTIFIER = demo.crossapp.com;
 				PRODUCT_NAME = Demo;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

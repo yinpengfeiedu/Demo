@@ -1,5 +1,6 @@
 
 #include "FirstViewController.h"
+#include "umSDK.h"
 #include "PaySdk.h"
 #include "umSDK.h"
 
@@ -25,11 +26,15 @@ void FirstViewController::viewDidLoad()
 	this->getView()->addSubview(pPayButton);
 	pPayButton->addTarget(this,SEL_CAControl(&FirstViewController::OnClickPayBtn),CAControlEventTouchUpInSide);
 
-
-	Pay::SetPartner("longtuganme");
-	Pay::SetRsaPrivate("abcdefghigklmn");
-	Pay::SetSeller("1234567890");
-	int ret = Pay::DoPay();
+    
+    Pay *pay = Pay::GetInstance();
+    if (pay)
+    {
+        pay->SetPartner("1234567890");
+        CCLog("parnter:%s",pay->getPartner().c_str());
+    }
+   
+	int ret = 0;
 	if (ret == 10000)
 	{
 		CCLog("calling pay of paySdk is successful!");
@@ -57,10 +62,8 @@ void FirstViewController::viewDidUnload()
 void FirstViewController::OnClickPayBtn(CAControl *pControl, DPoint pt)
 {
 	CCLog("aaaaaaaaaaaaaaaaaaaa");
-	Pay::SetPartner("longtuganme");
-	Pay::SetRsaPrivate("abcdefghigklmn");
-	Pay::SetSeller("1234567890");
-	int ret = Pay::DoPay();
+
+	int ret = 0;
 	if (ret == 10000)
 	{
 		CCLog("calling pay of paySdk is successful!");

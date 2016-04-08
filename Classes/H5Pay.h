@@ -1,9 +1,6 @@
 #ifndef __H5Pay_H__
 #define __H5Pay_H__
 
-
-#include "platform/android/jni/JniHelper.h"
-#include "CrossApp.h"
 #include "DataStruct.h"
 
 namespace PaySdk{
@@ -12,15 +9,19 @@ namespace PaySdk{
 	{
 	public:
 		H5Pay(){}
+        
 		~H5Pay(){}
 	public:
-		bool Init();
+        static H5Pay *GetInstance();
+        
 		void SetUrl(std::string url);
+        
 		std::string GetUrl();
+        
 		ErrorValue DoH5Pay();
-	private:
-		jclass j_mClass;
-		jobject j_mObj;
+        
+    private:
+        static H5Pay *mH5Pay;
 	};
 
 

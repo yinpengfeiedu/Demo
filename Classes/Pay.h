@@ -1,9 +1,8 @@
 #ifndef __Pay_H__
 #define __Pay_H__
 
-#include "platform/android/jni/JniHelper.h"
-#include "CrossApp.h"
 #include "DataStruct.h"
+
 namespace PaySdk{
 	
 	class Pay
@@ -12,6 +11,8 @@ namespace PaySdk{
 		Pay(){}
 		~Pay(){}
 	public:
+        static Pay *GetInstance();
+        
 		void SetPartner(std::string pID);
 
 		std::string getPartner();
@@ -43,6 +44,9 @@ namespace PaySdk{
 		ErrorValue DoPay();
 
 		std::string GetSampleOrderInfo(std::string name, std::string description, std::string price);
+        
+    private:
+        static Pay *mPay;
 
 	};
 
@@ -50,4 +54,4 @@ namespace PaySdk{
 
 }
 
-#endif // !__PayResult_H__
+#endif // !__Pay_H__

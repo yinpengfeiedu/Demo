@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4F41C7E0C194DB7A440F84B9CD1E7C9996B6EB92",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4F41C7E0C194DB7A440F84B9CD1E7C9996B6EB92" : 0,
+    "630594A0C3AF0041EB86DE5D805A5B25A32E1B5D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "97F73964-36C3-4C94-8D94-9BB1E6A68C3B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4F41C7E0C194DB7A440F84B9CD1E7C9996B6EB92" : "Demo\/",
+    "630594A0C3AF0041EB86DE5D805A5B25A32E1B5D" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Demo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "proj.ios\/Demo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/yinpengfeiedu\/Demo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4F41C7E0C194DB7A440F84B9CD1E7C9996B6EB92"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/9miao\/CrossApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "630594A0C3AF0041EB86DE5D805A5B25A32E1B5D"
+    }
+  ]
+}

@@ -4,9 +4,9 @@
 
 
 #include <iostream>
-#include "PayResult.h"
+//#include "PayResult.h"
 #include "Pay.h"
-#include "H5Pay.h"
+//#include "H5Pay.h"
 
 
 

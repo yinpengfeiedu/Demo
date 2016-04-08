@@ -1,89 +1,115 @@
-#include "Pay.h"
-#include "Alipay.h"
+#import "Pay.h"
+#import "Alipay.h"
+
 
 namespace PaySdk
 {
+    Pay *Pay::mPay = NULL;
+    
+    Pay *Pay::GetInstance()
+    {
+        if (mPay == NULL)
+        {
+            mPay = new Pay();
+        }
+        return mPay;
+    }
 
 	void Pay::SetPartner(std::string pID)
 	{
-		[Alipay defaultPay] setPartner(NSString StringwithString(pID));
+        NSString *nstring = [NSString stringWithCString:pID.c_str() encoding:[NSString defaultCStringEncoding]];
+        [[Alipay defaultPay] setPid : nstring];
 	}
 
 	std::string Pay::getPartner()
 	{
-		std::string str = [[NSString cStringUTF] [Alipay defaultPay] getPartner()];
+        NSString *nstring = [[Alipay defaultPay] getPid];
+        std::string str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
 		return str;
 	}
 
 	void Pay::SetSeller(std::string accountNo)
 	{
-		[Alipay defaultPay] setPartner(NSString StringwithString(pID));
+        NSString *nstring = [NSString stringWithCString:accountNo.c_str() encoding:[NSString defaultCStringEncoding]];
+        [[Alipay defaultPay] setAccountNo: nstring];
 	}
 
 	std::string Pay::getSeller()
 	{
-		std::string str = [[NSString cStringUTF][Alipay defaultPay] getPartner()];
+        NSString *nstring = [[Alipay defaultPay] getAccountNo];
+        std::string str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
 		return str;
 	}
 
 	void Pay::SetRsaPrivate(std::string priKey)
 	{
-		[Alipay defaultPay] setPartner(NSString StringwithString(pID));
+        NSString *nstring = [NSString stringWithCString:priKey.c_str() encoding:[NSString defaultCStringEncoding]];
+        [[Alipay defaultPay] setPrivateKey: nstring];
 	}
 
 	std::string Pay::getRsaPrivate()
 	{
-		std::string str = [[NSString cStringUTF][Alipay defaultPay] getPartner()];
+        NSString *nstring = [[Alipay defaultPay] getPrivateKey];
+        std::string str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
 		return str;
 	}
 
 	void Pay::SetRsaPublic(std::string pubKey)
 	{
-		[Alipay defaultPay] setPartner(NSString StringwithString(pID));
+        NSString *nstring = [NSString stringWithCString:pubKey.c_str() encoding:[NSString defaultCStringEncoding]];
+        [[Alipay defaultPay] setPublicKey: nstring];
 	}
 
 	std::string Pay::getRsaPublic()
 	{
-		std::string str = [[NSString cStringUTF][Alipay defaultPay] getPartner()];
+        NSString *nstring = [[Alipay defaultPay] getPublicKey];
+        std::string str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
 		return str;
 	}
 
 	void Pay::setOrderInfo(std::string order)
 	{
-		[Alipay defaultPay] setPartner(NSString StringwithString(pID));
+        NSString *nstring = [NSString stringWithCString:order.c_str() encoding:[NSString defaultCStringEncoding]];
+        [[Alipay defaultPay] setOrder: nstring];
 	}
 
 	std::string Pay::getOrderInfo()
 	{
-		std::string str = [[NSString cStringUTF][Alipay defaultPay] getPartner()];
+        NSString *nstring = [[Alipay defaultPay] getOrder];
+        std::string str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
 		return str;
 	}
 
 	void Pay::setSignValue(std::string sign)
 	{
-		[Alipay defaultPay] setPartner(NSString StringwithString(pID));
+        NSString *nstring = [NSString stringWithCString:sign.c_str() encoding:[NSString defaultCStringEncoding]];
+        [[Alipay defaultPay] setSignValue: nstring];
 	}
 
 	std::string Pay::getSignValue()
 	{
-		std::string str = [[NSString cStringUTF][Alipay defaultPay] getPartner()];
+        NSString *nstring = [[Alipay defaultPay] getSignValue];
+        std::string str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
 		return str;
 	}
 
 	void Pay::setSignType(std::string type)
 	{
-		[Alipay defaultPay] setPartner(NSString StringwithString(pID));
+        NSString *nstring = [NSString stringWithCString:type.c_str() encoding:[NSString defaultCStringEncoding]];
+        [[Alipay defaultPay] setSignType: nstring];
 	}
 
 	std::string Pay::getSignType()
 	{
-		std::string str = [[NSString cStringUTF][Alipay defaultPay] getPartner()];
+        NSString *nstring = [[Alipay defaultPay] getSignType];
+        std::string str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
 		return str;
 	}
 
 	ErrorValue Pay::DoPay()
 	{
-		[Alipay defaultPay] setPartner(NSString StringwithString(pID));
+        int ret = [[Alipay defaultPay] pay];
+		return (ErrorValue)ret;
 	}
 
 	std::string Pay::GetSampleOrderInfo(std::string name, std::string description, std::string price)
@@ -141,4 +167,11 @@ namespace PaySdk
 	}
 
 
-}
+
+
+
+};
+
+
+
+
