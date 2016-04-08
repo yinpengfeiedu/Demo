@@ -21,6 +21,7 @@ namespace PaySdk{
 		ErrorValue DoH5Pay();
         
     private:
+		bool Init();
         static H5Pay *mH5Pay;
 	};
 

@@ -1,29 +1,23 @@
 #include "Pay.h"
-
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC && CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
+#include "CrossApp.h"
 #include "platform/android/jni/JniHelper.h"
-#else
-#include "Alipay.h"
-#endif
-
 
 
 namespace PaySdk
 {
-    Pay *Pay::mPay = NULL;
-    
-    Pay *Pay::GetInstance()
-    {
-        if (mPay == NULL)
-        {
-            mPay = new Pay();
-        }
-        return mPay;
-    }
+   Pay *Pay::mPay = NULL;
+   
+   Pay *Pay::GetInstance()
+   {
+       if (mPay == NULL)
+       {
+           mPay = new Pay();
+       }
+       return mPay;
+   }
 
 	void Pay::SetPartner(std::string pID)
 	{
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setPartner", "(Ljava/lang/String;)V"))
 		{
@@ -32,35 +26,24 @@ namespace PaySdk
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_id);
 		}
-#else
-        NSString *nstring = [NSString stringWithCString:pID.c_str() encoding:[NSString defaultCStringEncoding]];
-        [[Alipay defaultPay] setPid : nstring];
-#endif
 	}
 
 	std::string Pay::getPartner()
 	{
-        std::string str;
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
-		JniMethodInfo jni;
 		std::string str;
+		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getPartner", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
 			str = JniHelper::jstring2string(j_string);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
-        }
-#else
-        NSString *nstring = [[Alipay defaultPay] getPid];
-        str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
-#endif
+       }
 		return str;
 	}
 
 	void Pay::SetSeller(std::string accountNo)
 	{
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setSeller", "(Ljava/lang/String;)V"))
 		{
@@ -68,36 +51,25 @@ namespace PaySdk
 			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_id);
-        }
-#else
-        NSString *nstring = [NSString stringWithCString:accountNo.c_str() encoding:[NSString defaultCStringEncoding]];
-        [[Alipay defaultPay] setAccountNo: nstring];
-#endif
+       }
 	}
 
 	std::string Pay::getSeller()
 	{
         std::string str;
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
-		std::string str;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getSeller", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
 			str = JniHelper::jstring2string(j_string);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
-        }
-#else
-        NSString *nstring = [[Alipay defaultPay] getAccountNo];
-        str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
-#endif
+       }
 		return str;
 	}
 
 	void Pay::SetRsaPrivate(std::string priKey)
 	{
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setRsaPrivate", "(Ljava/lang/String;)V"))
 		{
@@ -105,36 +77,25 @@ namespace PaySdk
 			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_id);
-        }
-#else
-        NSString *nstring = [NSString stringWithCString:priKey.c_str() encoding:[NSString defaultCStringEncoding]];
-        [[Alipay defaultPay] setPrivateKey: nstring];
-#endif
+       }
 	}
 
 	std::string Pay::getRsaPrivate()
 	{
         std::string str;
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
-		std::string str;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getRsaPrivate", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
 			str = JniHelper::jstring2string(j_string);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
-        }
-#else
-        NSString *nstring = [[Alipay defaultPay] getPrivateKey];
-        str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
-#endif
+       }
 		return str;
 	}
 
 	void Pay::SetRsaPublic(std::string pubKey)
 	{
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setRsaPublic", "(Ljava/lang/String;)V"))
 		{
@@ -142,36 +103,25 @@ namespace PaySdk
 			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_id);
-        }
-#else
-        NSString *nstring = [NSString stringWithCString:pubKey.c_str() encoding:[NSString defaultCStringEncoding]];
-        [[Alipay defaultPay] setPublicKey: nstring];
-#endif
+       }
 	}
 
 	std::string Pay::getRsaPublic()
 	{
         std::string str;
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
-		std::string str;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getRsaPublic", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
 			str = JniHelper::jstring2string(j_string);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
-        }
-#else
-        NSString *nstring = [[Alipay defaultPay] getPublicKey];
-        str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
-#endif
+       }
 		return str;
 	}
 
 	void Pay::setOrderInfo(std::string order)
 	{
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setOrderInfo", "(Ljava/lang/String;)V"))
 		{
@@ -179,36 +129,25 @@ namespace PaySdk
 			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_id);
-        }
-#else
-        NSString *nstring = [NSString stringWithCString:order.c_str() encoding:[NSString defaultCStringEncoding]];
-        [[Alipay defaultPay] setOrder: nstring];
-#endif
+       }
 	}
 
 	std::string Pay::getOrderInfo()
 	{
         std::string str;
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
-		std::string str;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getOrderInfo", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
 			str = JniHelper::jstring2string(j_string);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
-        }
-#else
-        NSString *nstring = [[Alipay defaultPay] getOrder];
-        str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
-#endif
+       }
 		return str;
 	}
 
 	void Pay::setSignValue(std::string sign)
 	{
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setSignValue", "(Ljava/lang/String;)V"))
 		{
@@ -216,36 +155,25 @@ namespace PaySdk
 			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_id);
-        }
-#else
-        NSString *nstring = [NSString stringWithCString:sign.c_str() encoding:[NSString defaultCStringEncoding]];
-        [[Alipay defaultPay] setSignValue: nstring];
-#endif
+       }
 	}
 
 	std::string Pay::getSignValue()
 	{
         std::string str;
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
-		std::string str;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getSignValue", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
 			str = JniHelper::jstring2string(j_string);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
-        }
-#else
-        NSString *nstring = [[Alipay defaultPay] getSignValue];
-        str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
-#endif
+       }
 		return str;
 	}
 
 	void Pay::setSignType(std::string type)
 	{
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setSignType", "(Ljava/lang/String;)V"))
 		{
@@ -253,47 +181,33 @@ namespace PaySdk
 			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_id);
-        }
-#else
-        NSString *nstring = [NSString stringWithCString:type.c_str() encoding:[NSString defaultCStringEncoding]];
-        [[Alipay defaultPay] setSignType: nstring];
-#endif
+       }
 	}
 
 	std::string Pay::getSignType()
 	{
         std::string str;
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
-		std::string str;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getSignType", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
 			str = JniHelper::jstring2string(j_string);
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
-        }
-#else
-        NSString *nstring = [[Alipay defaultPay] getSignType];
-        str = [nstring cStringUsingEncoding:[NSString defaultCStringEncoding]];
-#endif
+       }
 		return str;
 	}
 
 	ErrorValue Pay::DoPay()
 	{
         int ret = 0;
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "pay", "()I"))
 		{
 			ret = (int)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
 			CCLog("----------****%d", ret);
 			jni.env->DeleteLocalRef(jni.classID);
-        }
-#else
-        ret = [[Alipay defaultPay] pay];
-#endif
+       }
 		return (ErrorValue)ret;
 	}
 

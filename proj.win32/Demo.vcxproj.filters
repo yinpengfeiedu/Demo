@@ -7,6 +7,9 @@
     <Filter Include="Classes">
       <UniqueIdentifier>{20545893-551c-4f10-ae10-8d1be8921597}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\android">
+      <UniqueIdentifier>{b2af4dc6-3146-4aa7-b91a-becdaa77454b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,17 +21,17 @@
     <ClCompile Include="..\Classes\FirstViewController.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\H5Pay.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Pay.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\PayResult.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\RootWindow.cpp">
       <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\android\Pay.cpp">
+      <Filter>Classes\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\android\PayResult.cpp">
+      <Filter>Classes\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\android\umSDK.cpp">
+      <Filter>Classes\android</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,9 +53,6 @@
     <ClInclude Include="..\Classes\Pay.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\PayResult.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\PaySdk.h">
       <Filter>Classes</Filter>
     </ClInclude>
@@ -65,5 +65,13 @@
     <ClInclude Include="..\Classes\DataStruct.h">
       <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\android\PayResult.h">
+      <Filter>Classes\android</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\android\H5Pay.cpp">
+      <Filter>Classes\android</Filter>
+    </None>
   </ItemGroup>
 </Project>

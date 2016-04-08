@@ -1,8 +1,7 @@
 #ifndef __PayResult_H__
 #define __PayResult_H__
 
-
-#include "CrossApp.h"
+#include "DataStruct.h"
 
 namespace PaySdk{
 

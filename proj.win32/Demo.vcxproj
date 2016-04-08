@@ -130,22 +130,22 @@
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\android\Pay.cpp" />
+    <ClCompile Include="..\Classes\android\PayResult.cpp" />
+    <ClCompile Include="..\Classes\android\umSDK.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\FirstViewController.cpp" />
-    <ClCompile Include="..\Classes\H5Pay.cpp" />
-    <ClCompile Include="..\Classes\Pay.cpp" />
-    <ClCompile Include="..\Classes\PayResult.cpp" />
     <ClCompile Include="..\Classes\RootWindow.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\android\PayResult.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\DataStruct.h" />
     <ClInclude Include="..\Classes\FirstViewController.h" />
     <ClInclude Include="..\Classes\H5Pay.h" />
     <ClInclude Include="..\Classes\Pay.h" />
-    <ClInclude Include="..\Classes\PayResult.h" />
     <ClInclude Include="..\Classes\PaySdk.h" />
     <ClInclude Include="..\Classes\RootWindow.h" />
     <ClInclude Include="..\Classes\umSDK.h" />
@@ -163,6 +163,9 @@
       <Project>{21b2c324-891f-48ea-ad1a-5ae13de12e28}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\android\H5Pay.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

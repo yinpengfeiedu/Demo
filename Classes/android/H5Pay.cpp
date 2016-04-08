@@ -1,6 +1,7 @@
 #include "H5Pay.h"
+#include "CrossApp.h"
+#include "platform/android/jni/JniHelper.h"
 
-#if CC_TARGET_PLATFORM == CC_TARGET_ANDROID
 extern "C"{
 
 	static pthread_key_t s_threadKey;
@@ -43,28 +44,26 @@ extern "C"{
 
 
 
-
-
 namespace PaySdk
 {
+	H5Pay *H5Pay::mH5Pay = NULL;
 
-	bool H5Pay::Init()
+	static jclass m_jH5PayClass = NULL;
+
+	static jobject m_jH5PayObject = NULL;
+
+	H5Pay *H5Pay::GetInstance()
 	{
-		bool result = false;
-		JNIEnv *pEnv = 0;
-		bool ret = getEnv(&pEnv);
-		if (ret && pEnv)
+		if (mH5Pay == NULL)
 		{
-			jmethodID methodObjID = 0;
-			j_mClass = pEnv->FindClass("com/alipay/sdk/pay/H5Pay");
-			methodObjID = pEnv->GetMethodID(j_mClass, "<init>", "()V");
-			if (j_mClass && methodObjID)
+			mH5Pay = new H5Pay();
+			if (!mH5Pay->Init())
 			{
-				j_mObj = pEnv->NewObject(j_mClass, methodObjID);
-				result = true;
+				delete mH5Pay;
+				mH5Pay = NULL;
 			}
 		}
-		return result;
+		return mH5Pay;
 	}
 
 	void H5Pay::SetUrl(std::string url)
@@ -74,10 +73,10 @@ namespace PaySdk
 		if (ret && pEnv)
 		{
 			jfieldID fieldID = 0;
-			fieldID = pEnv->GetFieldID(j_mClass, "mUrl", "Ljava/lang/String;");
+			fieldID = pEnv->GetFieldID(m_jH5PayClass, "mUrl", "Ljava/lang/String;");
 			if (fieldID)
 			{
-				pEnv->SetObjectField(j_mObj, fieldID, pEnv->NewStringUTF(url.c_str()));
+				pEnv->SetObjectField(m_jH5PayObject, fieldID, pEnv->NewStringUTF(url.c_str()));
 			}
 		}
 	}
@@ -89,8 +88,8 @@ namespace PaySdk
 		std::string str;
 		if (ret && pEnv)
 		{
-			jmethodID methodID = pEnv->GetMethodID(j_mClass, "getUrl", "()Ljava/lang/String;");
-			jstring j_string = (jstring)pEnv->CallObjectMethod(j_mObj, methodID);
+			jmethodID methodID = pEnv->GetMethodID(m_jH5PayClass, "getUrl", "()Ljava/lang/String;");
+			jstring j_string = (jstring)pEnv->CallObjectMethod(m_jH5PayObject, methodID);
 			str = JniHelper::jstring2string(j_string);
 			pEnv->DeleteLocalRef(j_string);
 		}
@@ -105,20 +104,38 @@ namespace PaySdk
 		if (ret && pEnv)
 		{
 			jmethodID methodID = 0;
-			methodID = pEnv->GetMethodID(j_mClass, "h5Pay", "()I");
+			methodID = pEnv->GetMethodID(m_jH5PayClass, "h5Pay", "()I");
 			if (methodID)
 			{
-				result = (int)pEnv->CallObjectMethod(j_mObj, methodID);
+				result = (int)pEnv->CallObjectMethod(m_jH5PayObject, methodID);
 			}
 		}
 		CCLog("ret=%d", result);
 		return (ErrorValue)result;
 	}	
 
+	bool H5Pay::Init()
+	{
+		bool result = false;
+		JNIEnv *pEnv = 0;
+		bool ret = getEnv(&pEnv);
+		if (ret && pEnv)
+		{
+			jmethodID methodID = 0;
+			m_jH5PayClass = pEnv->FindClass("com/alipay/sdk/pay/H5Pay");
+			methodID = pEnv->GetMethodID(m_jH5PayClass, "<init>", "()V");
+			if (m_jH5PayClass && methodID)
+			{
+				m_jH5PayObject = pEnv->NewObject(m_jH5PayClass, methodID);
+				result = true;
+			}
+		}
+		return result;
+	}
+
 
 
 };
 
 
-#endif
 
