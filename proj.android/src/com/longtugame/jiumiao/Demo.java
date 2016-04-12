@@ -15,7 +15,7 @@ public class Demo extends Cocos2dxActivity{
     protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		AnalyticsHome.init(this);
-		//Pay.init(this);
+		Pay.init(this);
 		H5Pay.init(this);
 	}
 

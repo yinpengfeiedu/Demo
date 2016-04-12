@@ -36,11 +36,11 @@ public class Pay{
 		mContext = activity;
 	}
 	
-	public static void setPartner(String pID) {
+	public static void setPartner(String pID) {		
 		PARTNER = pID;
 	}
 	
-	public static String getPartner() {
+	public static String getPartner() {		
 		return PARTNER;
 	}
 	

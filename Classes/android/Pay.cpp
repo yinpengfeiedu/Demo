@@ -5,26 +5,16 @@
 
 namespace PaySdk
 {
-   Pay *Pay::mPay = NULL;
-   
-   Pay *Pay::GetInstance()
-   {
-       if (mPay == NULL)
-       {
-           mPay = new Pay();
-       }
-       return mPay;
-   }
 
 	void Pay::SetPartner(std::string pID)
 	{
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setPartner", "(Ljava/lang/String;)V"))
 		{
-			jstring j_id = jni.env->NewStringUTF(pID.c_str());;
-			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
+			jstring j_str = jni.env->NewStringUTF(pID.c_str());;
+			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_str);
 			jni.env->DeleteLocalRef(jni.classID);
-			jni.env->DeleteLocalRef(j_id);
+			jni.env->DeleteLocalRef(j_str);
 		}
 	}
 
@@ -35,10 +25,13 @@ namespace PaySdk
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getPartner", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
-			str = JniHelper::jstring2string(j_string);
+			if (jni.env->GetStringLength(j_string) > 0)
+			{
+				str = JniHelper::jstring2string(j_string);
+			}
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
-       }
+		}
 		return str;
 	}
 
@@ -47,10 +40,10 @@ namespace PaySdk
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setSeller", "(Ljava/lang/String;)V"))
 		{
-			jstring j_id = jni.env->NewStringUTF(accountNo.c_str());;
-			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
+			jstring j_str = jni.env->NewStringUTF(accountNo.c_str());;
+			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_str);
 			jni.env->DeleteLocalRef(jni.classID);
-			jni.env->DeleteLocalRef(j_id);
+			jni.env->DeleteLocalRef(j_str);
        }
 	}
 
@@ -61,7 +54,10 @@ namespace PaySdk
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getSeller", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
-			str = JniHelper::jstring2string(j_string);
+			if (jni.env->GetStringLength(j_string) > 0)
+			{
+				str = JniHelper::jstring2string(j_string);
+			}
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
        }
@@ -73,10 +69,10 @@ namespace PaySdk
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setRsaPrivate", "(Ljava/lang/String;)V"))
 		{
-			jstring j_id = jni.env->NewStringUTF(priKey.c_str());;
-			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
+			jstring j_str = jni.env->NewStringUTF(priKey.c_str());;
+			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_str);
 			jni.env->DeleteLocalRef(jni.classID);
-			jni.env->DeleteLocalRef(j_id);
+			jni.env->DeleteLocalRef(j_str);
        }
 	}
 
@@ -87,7 +83,10 @@ namespace PaySdk
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getRsaPrivate", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
-			str = JniHelper::jstring2string(j_string);
+			if (jni.env->GetStringLength(j_string) > 0)
+			{
+				str = JniHelper::jstring2string(j_string);
+			}
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
        }
@@ -99,10 +98,10 @@ namespace PaySdk
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setRsaPublic", "(Ljava/lang/String;)V"))
 		{
-			jstring j_id = jni.env->NewStringUTF(pubKey.c_str());;
-			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
+			jstring j_str = jni.env->NewStringUTF(pubKey.c_str());;
+			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_str);
 			jni.env->DeleteLocalRef(jni.classID);
-			jni.env->DeleteLocalRef(j_id);
+			jni.env->DeleteLocalRef(j_str);
        }
 	}
 
@@ -113,7 +112,10 @@ namespace PaySdk
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getRsaPublic", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
-			str = JniHelper::jstring2string(j_string);
+			if (jni.env->GetStringLength(j_string) > 0)
+			{
+				str = JniHelper::jstring2string(j_string);
+			}
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
        }
@@ -125,10 +127,10 @@ namespace PaySdk
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setOrderInfo", "(Ljava/lang/String;)V"))
 		{
-			jstring j_id = jni.env->NewStringUTF(order.c_str());;
-			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
+			jstring j_str = jni.env->NewStringUTF(order.c_str());;
+			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_str);
 			jni.env->DeleteLocalRef(jni.classID);
-			jni.env->DeleteLocalRef(j_id);
+			jni.env->DeleteLocalRef(j_str);
        }
 	}
 
@@ -139,7 +141,10 @@ namespace PaySdk
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getOrderInfo", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
-			str = JniHelper::jstring2string(j_string);
+			if (jni.env->GetStringLength(j_string) > 0)
+			{
+				str = JniHelper::jstring2string(j_string);
+			}
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
        }
@@ -151,10 +156,10 @@ namespace PaySdk
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setSignValue", "(Ljava/lang/String;)V"))
 		{
-			jstring j_id = jni.env->NewStringUTF(sign.c_str());;
-			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
+			jstring j_str = jni.env->NewStringUTF(sign.c_str());;
+			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_str);
 			jni.env->DeleteLocalRef(jni.classID);
-			jni.env->DeleteLocalRef(j_id);
+			jni.env->DeleteLocalRef(j_str);
        }
 	}
 
@@ -165,7 +170,10 @@ namespace PaySdk
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getSignValue", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
-			str = JniHelper::jstring2string(j_string);
+			if (jni.env->GetStringLength(j_string) > 0)
+			{
+				str = JniHelper::jstring2string(j_string);
+			}
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
        }
@@ -177,10 +185,10 @@ namespace PaySdk
 		JniMethodInfo jni;
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "setSignType", "(Ljava/lang/String;)V"))
 		{
-			jstring j_id = jni.env->NewStringUTF(type.c_str());;
-			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_id);
+			jstring j_str = jni.env->NewStringUTF(type.c_str());;
+			jni.env->CallStaticVoidMethod(jni.classID, jni.methodID, j_str);
 			jni.env->DeleteLocalRef(jni.classID);
-			jni.env->DeleteLocalRef(j_id);
+			jni.env->DeleteLocalRef(j_str);
        }
 	}
 
@@ -191,7 +199,10 @@ namespace PaySdk
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "getSignType", "()Ljava/lang/String;"))
 		{
 			jstring j_string = (jstring)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
-			str = JniHelper::jstring2string(j_string);
+			if (jni.env->GetStringLength(j_string) > 0)
+			{
+				str = JniHelper::jstring2string(j_string);
+			}
 			jni.env->DeleteLocalRef(jni.classID);
 			jni.env->DeleteLocalRef(j_string);
        }
@@ -205,7 +216,7 @@ namespace PaySdk
 		if (JniHelper::getStaticMethodInfo(jni, "com/alipay/sdk/pay/Pay", "pay", "()I"))
 		{
 			ret = (int)jni.env->CallStaticObjectMethod(jni.classID, jni.methodID);
-			CCLog("----------****%d", ret);
+			CCLog("ret=%d", ret);
 			jni.env->DeleteLocalRef(jni.classID);
        }
 		return (ErrorValue)ret;
@@ -264,9 +275,6 @@ namespace PaySdk
 
 		return orderInfo;
 	}
-
-
-
 
 
 };

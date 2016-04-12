@@ -7,46 +7,45 @@ namespace PaySdk{
 	
 	class Pay
 	{
-	public:
+	private:
 		Pay(){}
 		~Pay(){}
 	public:
-        static Pay *GetInstance();
         
-		void SetPartner(std::string pID);
+		static void SetPartner(std::string pID);
 
-		std::string getPartner();
+		static std::string getPartner();
 
-		void SetSeller(std::string accountNo);
+		static void SetSeller(std::string accountNo);
 
-		std::string getSeller();
+		static std::string getSeller();
 
-		void SetRsaPrivate(std::string priKey);
+		static void SetRsaPrivate(std::string priKey);
 
-		std::string getRsaPrivate();
+		static std::string getRsaPrivate();
 
-		void SetRsaPublic(std::string pubKey);
+		static void SetRsaPublic(std::string pubKey);
 
-		std::string getRsaPublic();
+		static std::string getRsaPublic();
 
-		void setOrderInfo(std::string order);
+		static void setOrderInfo(std::string order);
 
-		std::string getOrderInfo();
+		static std::string getOrderInfo();
 
-		void setSignValue(std::string sign);
+		static void setSignValue(std::string sign);
 
-		std::string getSignValue();
+		static std::string getSignValue();
 
-		void setSignType(std::string type);
+		static void setSignType(std::string type);
 
-		std::string getSignType();
+		static std::string getSignType();
 
-		ErrorValue DoPay();
+		static ErrorValue DoPay();
 
-		std::string GetSampleOrderInfo(std::string name, std::string description, std::string price);
+		static std::string GetSampleOrderInfo(std::string name, std::string description, std::string price);
         
     private:
-        static Pay *mPay;
+
 
 	};
 

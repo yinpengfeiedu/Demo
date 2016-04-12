@@ -1,8 +1,9 @@
 
 #include "FirstViewController.h"
-#include "umSDK.h"
 #include "PaySdk.h"
+#include "H5Pay.h"
 #include "umSDK.h"
+
 
 using namespace PaySdk;
 
@@ -21,20 +22,35 @@ void FirstViewController::viewDidLoad()
 	DRect winRect = this->getView()->getBounds();
 
 	CALabel* label = CALabel::createWithCenter(winRect);
-	CAButton *pPayButton = CAButton::createWithFrame(DRect(50,50,150,150),CAButtonTypeCustom);
-	pPayButton->setTitleForState(CAControlStateAll,"pay");
+	CAButton *pPayButton = CAButton::createWithFrame(DRect(50,50,200,200),CAButtonTypeCustom);
+	pPayButton->setTitleForState(CAControlStateAll,"Pay");
 	this->getView()->addSubview(pPayButton);
 	pPayButton->addTarget(this,SEL_CAControl(&FirstViewController::OnClickPayBtn),CAControlEventTouchUpInSide);
 
-    
-    Pay *pay = Pay::GetInstance();
-    if (pay)
-    {
-        pay->SetPartner("1234567890");
-        CCLog("parnter:%s",pay->getPartner().c_str());
-    }
-   
-	int ret = 0;
+	CAButton *pH5PayButton = CAButton::createWithFrame(DRect(350, 50, 300, 200), CAButtonTypeCustom);
+	pH5PayButton->setTitleForState(CAControlStateAll, "H5Pay");
+	this->getView()->addSubview(pH5PayButton);
+	pH5PayButton->addTarget(this, SEL_CAControl(&FirstViewController::OnClickH5PayBtn), CAControlEventTouchUpInSide);
+}
+
+void FirstViewController::viewDidUnload()
+{
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+void FirstViewController::OnClickPayBtn(CAControl *pControl, DPoint pt)
+{
+	CCLog("starting pay......");
+	Pay::SetPartner("abcdefg123456");
+	Pay::SetRsaPrivate("abcdefg");
+	Pay::SetSeller("1234567890");
+	Pay::setOrderInfo("ddd");
+	CCLog("parnter:%s----rsaprivate:%s----seller:%s----order:%s",
+		Pay::getPartner().c_str(), Pay::getRsaPrivate().c_str(), Pay::getSeller().c_str(), Pay::getOrderInfo().c_str());
+	int ret = Pay::DoPay();
+	CCLog("end pay......");
+
 	if (ret == 10000)
 	{
 		CCLog("calling pay of paySdk is successful!");
@@ -53,17 +69,14 @@ void FirstViewController::viewDidLoad()
 	}
 }
 
-void FirstViewController::viewDidUnload()
+void FirstViewController::OnClickH5PayBtn(CAControl *pControl, DPoint pt)
 {
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
+	CCLog("starting h5pay......");
+	H5Pay::SetUrl("www.baidu.com");
+	CCLog("url:%s",H5Pay::GetUrl().c_str());
+	int ret = H5Pay::DoH5Pay();
+	CCLog("end h5pay......");
 
-void FirstViewController::OnClickPayBtn(CAControl *pControl, DPoint pt)
-{
-	CCLog("aaaaaaaaaaaaaaaaaaaa");
-
-	int ret = 0;
 	if (ret == 10000)
 	{
 		CCLog("calling pay of paySdk is successful!");

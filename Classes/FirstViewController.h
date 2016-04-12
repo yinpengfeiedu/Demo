@@ -22,6 +22,7 @@ protected:
     
     void viewDidUnload();
 	void OnClickPayBtn(CAControl *pControl, DPoint pt);
+	void OnClickH5PayBtn(CAControl *pControl, DPoint pt);
 };
 
 

@@ -7,22 +7,18 @@ namespace PaySdk{
 
 	class H5Pay
 	{
-	public:
-		H5Pay(){}
-        
+	private:
+		H5Pay(){}        
 		~H5Pay(){}
 	public:
-        static H5Pay *GetInstance();
         
-		void SetUrl(std::string url);
+		static void SetUrl(std::string url);
         
-		std::string GetUrl();
+		static std::string GetUrl();
         
-		ErrorValue DoH5Pay();
+		static ErrorValue DoH5Pay();
         
     private:
-		bool Init();
-        static H5Pay *mH5Pay;
 	};
 
 
